@@ -1,0 +1,24 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Email": "coderpy4@proton.me",
+        "Name": "Andrii Kovalchuk"
+      }
+    ],
+    "BugReportUrl": "https://github.com/rosset-nocpes/plasmoid-ua-status/issues",
+    "Category": "System Information",
+    "Description": "Live air raid alert map and notifications for a chosen Ukrainian location",
+    "Description[uk]": "Мапа повітряних тривог і сповіщення для вибраної локації в Україні",
+    "EnabledByDefault": true,
+    "Icon": "security-high",
+    "Id": "plasmoid-ua-status",
+    "License": "GPL-3.0-or-later",
+    "Name": "Air Raid Alert Map",
+    "Name[uk]": "Мапа повітряних тривог",
+    "Version": "1.0.0",
+    "Website": "https://github.com/rosset-nocpes/plasmoid-ua-status"
+  },
+  "KPackageStructure": "Plasma/Applet",
+  "X-Plasma-API-Minimum-Version": "6.0"
+}

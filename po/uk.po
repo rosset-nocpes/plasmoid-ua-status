@@ -1,0 +1,385 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_plasmoid-ua-status 1.0.0\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+msgid "General"
+msgstr "Загальні"
+
+msgid "Refresh"
+msgstr "Оновити"
+
+msgid "Configure"
+msgstr "Налаштувати"
+
+msgid "Go to shelter and follow official guidance"
+msgstr "Перейдіть до укриття та дотримуйтеся офіційних вказівок"
+
+msgid "Active in: %1"
+msgstr "Тривога діє в: %1"
+
+msgid "Alert active in part of the area"
+msgstr "Тривога діє в частині регіону"
+
+msgid "No active alerts"
+msgstr "Тривог немає"
+
+msgid "Updated %1"
+msgstr "Оновлено %1"
+
+msgid "Loading…"
+msgstr "Завантаження…"
+
+msgid "15 seconds"
+msgstr "15 секунд"
+
+msgid "Play a sound when an alert starts"
+msgstr "Відтворювати звук на початку тривоги"
+
+msgid "The curl command is required to fetch alerts"
+msgstr "Для отримання тривог потрібна команда curl"
+
+msgid "Retry"
+msgstr "Повторити"
+
+msgid "Set as location"
+msgstr "Вибрати як локацію"
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Map of air raid alerts in Ukraine"
+msgstr "Мапа повітряних тривог в Україні"
+
+msgid "%1 region in alert"
+msgid_plural "%1 regions in alert"
+msgstr[0] "%1 регіон із тривогою"
+msgstr[1] "%1 регіони із тривогою"
+msgstr[2] "%1 регіонів із тривогою"
+
+msgid "Specific districts or communities are highlighted"
+msgstr "Підсвічено окремі райони або громади"
+
+msgid "Alert covers the whole oblast"
+msgstr "Тривога діє в усій області"
+
+msgid "Data may be delayed. Do not use this widget as your only warning source."
+msgstr "Дані можуть надходити із затримкою. Не покладайтеся лише на цей віджет для попереджень."
+
+msgid "Custom location"
+msgstr "Власна локація"
+
+msgid " · Data may be stale"
+msgstr " · Дані можуть бути застарілими"
+
+msgid "Air raid alert, red level"
+msgstr "Повітряна тривога, червоний рівень"
+
+msgid "Air raid alert, yellow level"
+msgstr "Повітряна тривога, жовтий рівень"
+
+msgid "Partial alert, red level"
+msgstr "Часткова тривога, червоний рівень"
+
+msgid "Partial alert, yellow level"
+msgstr "Часткова тривога, жовтий рівень"
+
+msgid "Red level"
+msgstr "Червоний рівень"
+
+msgid "Yellow level"
+msgstr "Жовтий рівень"
+
+msgid "No active alert"
+msgstr "Тривоги немає"
+
+msgid "No data"
+msgstr "Немає даних"
+
+msgid " +%1 more"
+msgstr " +ще %1"
+
+msgid "Not updated yet"
+msgstr "Ще не оновлено"
+
+msgid "The backend response could not be read"
+msgstr "Не вдалося прочитати відповідь сервера"
+
+msgid "Could not reach the alert backend"
+msgstr "Не вдалося з’єднатися із сервером тривог"
+
+msgid "The backend could not authenticate with alerts.in.ua"
+msgstr "Сервер не зміг авторизуватися в alerts.in.ua"
+
+msgid "Access to the alert backend was denied"
+msgstr "Доступ до сервера тривог заборонено"
+
+msgid "The alerts.in.ua rate limit was reached; wait before refreshing"
+msgstr "Перевищено ліміт запитів alerts.in.ua; зачекайте перед оновленням"
+
+msgid "The alert backend is not configured"
+msgstr "Сервер тривог не налаштовано"
+
+msgid "The backend could not retrieve alert data"
+msgstr "Сервер не зміг отримати дані про тривоги"
+
+msgid "The alert backend returned HTTP %1"
+msgstr "Сервер тривог повернув HTTP %1"
+
+msgid "Red-level air raid alert — %1"
+msgstr "Повітряна тривога червоного рівня — %1"
+
+msgid "Yellow-level air raid alert — %1"
+msgstr "Повітряна тривога жовтого рівня — %1"
+
+msgid "The alert level was raised to red."
+msgstr "Рівень тривоги підвищено до червоного."
+
+msgid "The alert level was lowered to yellow."
+msgstr "Рівень тривоги знижено до жовтого."
+
+msgid "All clear — %1"
+msgstr "Відбій тривоги — %1"
+
+msgid "Active in: %1. Go to shelter and follow official guidance."
+msgstr "Тривога діє в: %1. Перейдіть до укриття та дотримуйтеся офіційних вказівок."
+
+msgid "Go to shelter and follow official guidance."
+msgstr "Перейдіть до укриття та дотримуйтеся офіційних вказівок."
+
+msgid "The air raid alert has ended."
+msgstr "Повітряну тривогу скасовано."
+
+msgid "The alert backend did not respond in time"
+msgstr "Сервер тривог не відповів вчасно"
+
+msgid "Location:"
+msgstr "Локація:"
+
+msgid "Location UID:"
+msgstr "UID локації:"
+
+msgid "Numeric UID from the official location list"
+msgstr "Числовий UID з офіційного списку локацій"
+
+msgid "Display name:"
+msgstr "Назва:"
+
+msgid "City, community, or district"
+msgstr "Місто, громада або район"
+
+msgid "Find the UID in the official alerts.in.ua location list."
+msgstr "Знайдіть UID в офіційному списку локацій alerts.in.ua."
+
+msgid "Refresh every:"
+msgstr "Оновлювати кожні:"
+
+msgid "30 seconds"
+msgstr "30 секунд"
+
+msgid "1 minute"
+msgstr "1 хвилину"
+
+msgid "2 minutes"
+msgstr "2 хвилини"
+
+msgid "5 minutes"
+msgstr "5 хвилин"
+
+msgid "Map labels:"
+msgstr "Підписи на мапі:"
+
+msgid "Automatic (regions in alert and your location)"
+msgstr "Автоматично (регіони з тривогою та ваша локація)"
+
+msgid "Only hovered or focused"
+msgstr "Лише при наведенні або фокусуванні"
+
+msgid "Always visible"
+msgstr "Завжди показувати"
+
+msgid "Notifications:"
+msgstr "Сповіщення:"
+
+msgid "Notify when an alert starts"
+msgstr "Сповіщати про початок тривоги"
+
+msgid "Notify when the alert ends"
+msgstr "Сповіщати про відбій тривоги"
+
+# Location names are looked up dynamically from LocationData.js.
+msgid "Kyiv"
+msgstr "Київ"
+
+msgid "Autonomous Republic of Crimea"
+msgstr "Автономна Республіка Крим"
+
+msgid "Vinnytsia Oblast"
+msgstr "Вінницька область"
+
+msgid "Volyn Oblast"
+msgstr "Волинська область"
+
+msgid "Dnipropetrovsk Oblast"
+msgstr "Дніпропетровська область"
+
+msgid "Donetsk Oblast"
+msgstr "Донецька область"
+
+msgid "Zhytomyr Oblast"
+msgstr "Житомирська область"
+
+msgid "Zakarpattia Oblast"
+msgstr "Закарпатська область"
+
+msgid "Zaporizhzhia Oblast"
+msgstr "Запорізька область"
+
+msgid "Ivano-Frankivsk Oblast"
+msgstr "Івано-Франківська область"
+
+msgid "Kyiv Oblast"
+msgstr "Київська область"
+
+msgid "Kirovohrad Oblast"
+msgstr "Кіровоградська область"
+
+msgid "Luhansk Oblast"
+msgstr "Луганська область"
+
+msgid "Lviv Oblast"
+msgstr "Львівська область"
+
+msgid "Mykolaiv Oblast"
+msgstr "Миколаївська область"
+
+msgid "Odesa Oblast"
+msgstr "Одеська область"
+
+msgid "Poltava Oblast"
+msgstr "Полтавська область"
+
+msgid "Rivne Oblast"
+msgstr "Рівненська область"
+
+msgid "Sevastopol"
+msgstr "Севастополь"
+
+msgid "Sumy Oblast"
+msgstr "Сумська область"
+
+msgid "Ternopil Oblast"
+msgstr "Тернопільська область"
+
+msgid "Kharkiv Oblast"
+msgstr "Харківська область"
+
+msgid "Kherson Oblast"
+msgstr "Херсонська область"
+
+msgid "Khmelnytskyi Oblast"
+msgstr "Хмельницька область"
+
+msgid "Cherkasy Oblast"
+msgstr "Черкаська область"
+
+msgid "Chernivtsi Oblast"
+msgstr "Чернівецька область"
+
+msgid "Chernihiv Oblast"
+msgstr "Чернігівська область"
+
+msgid "Vinnytsia"
+msgstr "Вінниця"
+
+msgid "Bila Tserkva"
+msgstr "Біла Церква"
+
+msgid "Boryspil"
+msgstr "Бориспіль"
+
+msgid "Dnipro"
+msgstr "Дніпро"
+
+msgid "Ivano-Frankivsk"
+msgstr "Івано-Франківськ"
+
+msgid "Irpin"
+msgstr "Ірпінь"
+
+msgid "Zhytomyr"
+msgstr "Житомир"
+
+msgid "Zaporizhzhia"
+msgstr "Запоріжжя"
+
+msgid "Kropyvnytskyi"
+msgstr "Кропивницький"
+
+msgid "Kramatorsk"
+msgstr "Краматорськ"
+
+msgid "Kryvyi Rih"
+msgstr "Кривий Ріг"
+
+msgid "Luhansk"
+msgstr "Луганськ"
+
+msgid "Lviv"
+msgstr "Львів"
+
+msgid "Mariupol"
+msgstr "Маріуполь"
+
+msgid "Mykolaiv"
+msgstr "Миколаїв"
+
+msgid "Odesa"
+msgstr "Одеса"
+
+msgid "Poltava"
+msgstr "Полтава"
+
+msgid "Rivne"
+msgstr "Рівне"
+
+msgid "Sumy"
+msgstr "Суми"
+
+msgid "Ternopil"
+msgstr "Тернопіль"
+
+msgid "Uzhhorod"
+msgstr "Ужгород"
+
+msgid "Kharkiv"
+msgstr "Харків"
+
+msgid "Kherson"
+msgstr "Херсон"
+
+msgid "Khmelnytskyi"
+msgstr "Хмельницький"
+
+msgid "Cherkasy"
+msgstr "Черкаси"
+
+msgid "Chernivtsi"
+msgstr "Чернівці"
+
+msgid "Chernihiv"
+msgstr "Чернігів"
+
+msgid "Custom location…"
+msgstr "Власна локація…"
+
+# Short map labels.
+msgid "Ivano-\nFrankivsk"
+msgstr "Івано-\nФранківськ"
+
+msgid "Kyiv\noblast"
+msgstr "Київська\nобласть"
