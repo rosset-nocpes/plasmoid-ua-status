@@ -216,9 +216,10 @@ def request_with_retries(
     *,
     timeout: float,
     max_retries: int,
+    safe_to_retry: bool = False,
     **kwargs: Any,
 ) -> ResponseLike:
-    if method.upper() not in IDEMPOTENT_METHODS:
+    if not safe_to_retry and method.upper() not in IDEMPOTENT_METHODS:
         max_retries = 0
     attempt = 0
     last_error: Optional[Exception] = None
@@ -237,10 +238,11 @@ def request_with_retries(
                 attempt=attempt,
                 max_retries=max_retries,
                 error_type=type(exc).__name__,
+                error=str(exc),
             )
             if attempt > max_retries:
                 break
-            time.sleep(min(0.5 * attempt, 2.0))
+            time.sleep(min(2.0 * attempt, 10.0))
             continue
 
         status_code = response.status_code
@@ -260,7 +262,8 @@ def request_with_retries(
 
     if last_error is not None:
         raise PlingUploaderError(
-            f"HTTP request failed after retries: {method} {url} ({type(last_error).__name__})"
+            f"HTTP request failed after retries: {method} {url} "
+            f"({type(last_error).__name__}: {last_error})"
         ) from last_error
 
     raise PlingUploaderError(f"HTTP request failed after retries: {method} {url}")
@@ -788,6 +791,9 @@ def upload_to_file_server(
         },
         timeout=max(config.timeout, 120.0),
         max_retries=config.max_retries,
+        # The file stays orphaned on the file server until addpploadfile registers it,
+        # so resending after a dropped connection cannot duplicate it on the product.
+        safe_to_retry=True,
     )
 
     payload = parse_json_response(response, context="file server upload")
