@@ -1,3 +1,4 @@
 .env*
 !.env.example
 *.plasmoid
+__pycache__/

@@ -1,0 +1,86 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check tag matches metadata version
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF#refs/tags/}"
+          VERSION="${TAG#v}"
+          META_VERSION="$(python3 -c 'import json; print(json.load(open("metadata.json"))["KPlugin"]["Version"])')"
+          echo "Tag: $TAG (version $VERSION), metadata: $META_VERSION"
+          if [ "$VERSION" != "$META_VERSION" ]; then
+            echo "::error::Tag version $VERSION does not match metadata.json KPlugin.Version $META_VERSION"
+            exit 1
+          fi
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Rebuild translations
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq gettext
+          ID="$(python3 -c 'import json; print(json.load(open("metadata.json"))["KPlugin"]["Id"])')"
+          for po in po/*.po; do
+            lang="$(basename "$po" .po)"
+            mkdir -p "contents/locale/$lang/LC_MESSAGES"
+            msgfmt --check -o "contents/locale/$lang/LC_MESSAGES/plasma_applet_$ID.mo" "$po"
+            echo "Compiled $po"
+          done
+          echo "ID=$ID" >> "$GITHUB_ENV"
+
+      - name: Build .plasmoid
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE="${ID}-${VERSION}.plasmoid"
+          zip -r "$FILE" metadata.json contents -x '*.qrc'
+          unzip -l "$FILE" | head -n 20
+          # Sanity check: metadata.json must be at archive root
+          python3 -c "import json,sys,zipfile; z=zipfile.ZipFile('$FILE'); m=json.loads(z.read('metadata.json')); assert m['KPlugin']['Id']=='$ID', 'Id mismatch'; print('plasmoid ok:', '$FILE')"
+          echo "PLASMOID_FILE=$FILE" >> "$GITHUB_ENV"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.PLASMOID_FILE }}
+          generate_release_notes: true
+
+      - name: Set up Python for store upload
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Upload to KDE Store (store.kde.org / opendesktop.org)
+        shell: bash
+        env:
+          PLING_PROJECT_ID: ${{ secrets.PLING_PROJECT_ID }}
+          PLING_USERNAME: ${{ secrets.PLING_USERNAME }}
+          PLING_PASSWORD: ${{ secrets.PLING_PASSWORD }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PLING_PROJECT_ID:-}" ] || [ -z "${PLING_USERNAME:-}" ] || [ -z "${PLING_PASSWORD:-}" ]; then
+            echo "::warning::KDE Store upload skipped: set PLING_PROJECT_ID, PLING_USERNAME and PLING_PASSWORD repository secrets first (create the product once at https://store.kde.org/product/add, the number in its URL is the project ID)."
+            exit 0
+          fi
+          pip install -q 'niquests>=3.18.5'
+          python3 scripts/pling_upload.py -f "$PLASMOID_FILE"
