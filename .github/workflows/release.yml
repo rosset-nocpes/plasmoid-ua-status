@@ -65,22 +65,3 @@ jobs:
           files: ${{ env.PLASMOID_FILE }}
           generate_release_notes: true
 
-      - name: Set up Python for store upload
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-
-      - name: Upload to KDE Store (store.kde.org / opendesktop.org)
-        shell: bash
-        env:
-          PLING_PROJECT_ID: ${{ secrets.PLING_PROJECT_ID }}
-          PLING_USERNAME: ${{ secrets.PLING_USERNAME }}
-          PLING_PASSWORD: ${{ secrets.PLING_PASSWORD }}
-        run: |
-          set -euo pipefail
-          if [ -z "${PLING_PROJECT_ID:-}" ] || [ -z "${PLING_USERNAME:-}" ] || [ -z "${PLING_PASSWORD:-}" ]; then
-            echo "::warning::KDE Store upload skipped: set PLING_PROJECT_ID, PLING_USERNAME and PLING_PASSWORD repository secrets first (create the product once at https://store.kde.org/product/add, the number in its URL is the project ID)."
-            exit 0
-          fi
-          pip install -q 'niquests>=3.18.5'
-          python3 scripts/pling_upload.py -f "$PLASMOID_FILE"
